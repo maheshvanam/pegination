@@ -10,11 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        collectionView.register(UINib(nibName: Constants.CellId.NOTE_CELL_ID, bundle: nil), forCellWithReuseIdentifier: Constants.CellId.NOTE_CELL_ID)
     }
-
-
 }
-
