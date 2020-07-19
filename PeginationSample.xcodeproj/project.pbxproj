@@ -56,8 +56,7 @@
 		8430C72524C20F2700B152E4 /* PeginationSample */ = {
 			isa = PBXGroup;
 			children = (
-				8430C72624C20F2700B152E4 /* AppDelegate.swift */,
-				8430C72824C20F2700B152E4 /* SceneDelegate.swift */,
+				84E51DE424C4D786002B8C72 /* SupportingFiles */,
 				8430C72A24C20F2700B152E4 /* ViewController.swift */,
 				8430C72C24C20F2700B152E4 /* Main.storyboard */,
 				8430C72F24C20F2D00B152E4 /* Assets.xcassets */,
@@ -65,6 +64,15 @@
 				8430C73424C20F2D00B152E4 /* Info.plist */,
 			);
 			path = PeginationSample;
+			sourceTree = "<group>";
+		};
+		84E51DE424C4D786002B8C72 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8430C72624C20F2700B152E4 /* AppDelegate.swift */,
+				8430C72824C20F2700B152E4 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
