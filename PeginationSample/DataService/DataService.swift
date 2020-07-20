@@ -25,4 +25,17 @@ class DataService {
     func save() {
         appDelegate.saveContext()
     }
+    
+    func getNotes() -> [Note] {
+        var notes:[Note] = []
+        do {
+            let result = try context.fetch( fetchRequest ) as NSArray
+            if result.count > 0 {
+                notes = result as! [Note]
+            }
+        }catch {
+            print(error.localizedDescription)
+        }
+        return notes
+    }
 }

@@ -102,6 +102,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gMT-i7-Ey4"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionField" destination="IMm-Nl-LiR" id="Mws-j8-KsD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgY-4Y-NQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

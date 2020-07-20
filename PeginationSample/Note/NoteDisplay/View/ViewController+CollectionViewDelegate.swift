@@ -13,11 +13,12 @@ private let cellHeight  = 50.0
 extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellId.NOTE_CELL_ID, for: indexPath ) as! NoteViewCell
+        cell.updateView(note: dataSource[indexPath.item])
         return cell
     }
     

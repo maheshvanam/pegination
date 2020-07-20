@@ -18,5 +18,8 @@ class NoteViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 7
         // Initialization code
     }
-
+    
+    func updateView(note: Note) {
+        self.descriptionField.text = note.noteDescription
+    }
 }
