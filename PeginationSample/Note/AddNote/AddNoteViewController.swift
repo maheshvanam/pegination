@@ -15,13 +15,12 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func didSaveTapped(_ sender: Any) {
+    override func viewWillDisappear(_ animated: Bool) {
         if let text = descriptionField.text ,!text.isEmpty {
             let dbManager = DataService.shared
             let note = dbManager.createNote()
             note.noteDescription = text
             dbManager.save()
         }
-        self.dismiss(animated: true, completion: nil)
     }
 }
