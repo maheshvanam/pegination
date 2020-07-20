@@ -8,6 +8,7 @@
 
 import UIKit
 
+private let cellHeight  = 50.0
 
 extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     

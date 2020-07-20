@@ -14,5 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: Constants.CellId.NOTE_CELL_ID, bundle: nil), forCellWithReuseIdentifier: Constants.CellId.NOTE_CELL_ID)
+        
     }
 }
