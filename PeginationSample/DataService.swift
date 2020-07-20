@@ -16,5 +16,13 @@ class DataService {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
-
+    private let fetchRequest = NSFetchRequest<Note>(entityName: "Note")
+    
+    func createNote() -> Note {
+        return Note(context: context)
+    }
+    
+    func save() {
+        appDelegate.saveContext()
+    }
 }
