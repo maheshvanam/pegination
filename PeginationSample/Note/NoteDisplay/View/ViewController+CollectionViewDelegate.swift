@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let cellHeight  = 50.0
-private var loadingRow = 10
+private let cellHeight:Float  = 100
+private let freeWidth:Float   = 50
 extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -23,21 +23,27 @@ extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 50, height: 100.0)
+        let viewWidth:CGFloat =  view.frame.width
+        return CGSize(width: viewWidth - CGFloat(freeWidth) , height: CGFloat(cellHeight))
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-       // print("ASDas",indexPath.row)
-            if indexPath.row == loadingRow+1 {
-                updateNextSet()
-                loadingRow = loadingRow + 10
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let height = scrollView.contentSize.height
+        if offsetY > height - scrollView.frame.size.height {
+            if fetchMore {
+                self.updateNextSet()
             }
+        }
     }
-
+    
     func updateNextSet(){
-        print("fetched..")
-       let notes = self.notePresenter.fetchLimitedNotes(fetchOffset:10, fetchLimit: 10)
+        let notes = self.notePresenter.fetchLimitedNotes(fetchOffset: offcet, fetchLimit: limit)
+        let previousCount = dataSource.count
         dataSource.append(contentsOf: notes )
+        let currentCount = dataSource.count
+        offcet = currentCount
+        fetchMore = currentCount == previousCount ? false : true
         collectionView.reloadData()
     }
     

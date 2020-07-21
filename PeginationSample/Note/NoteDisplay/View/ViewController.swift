@@ -8,11 +8,16 @@
 
 import UIKit
 
+private let initialOffcet = 0
+private let initialLimit  = 10
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource:[Note] = []
     var notePresenter:NotePresenterDelegate!
+    var limit = 5
+    var offcet:Int!
+    var fetchMore:Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +26,9 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataSource = self.notePresenter.fetchLimitedNotes(fetchOffset:0, fetchLimit: 10)
+        dataSource = self.notePresenter.fetchLimitedNotes(fetchOffset:initialOffcet, fetchLimit: initialLimit)
+        offcet = dataSource.count
+        fetchMore = true
         collectionView.reloadData()
     }
 }
