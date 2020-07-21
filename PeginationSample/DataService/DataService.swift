@@ -38,4 +38,19 @@ class DataService {
         }
         return notes
     }
+    
+    func fetchLimitedNotes(fetchOffset:Int,fetchLimit:Int) -> [Note] {
+        var notes:[Note] = []
+        do {
+            fetchRequest.fetchOffset  = fetchOffset
+            fetchRequest.fetchLimit = fetchLimit
+            let result = try context.fetch( fetchRequest ) as NSArray
+            if result.count > 0 {
+                notes = result as! [Note]
+            }
+        }catch {
+            print(error.localizedDescription)
+        }
+        return notes
+    }
 }

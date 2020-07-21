@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource:[Note] = []
     var notePresenter:NotePresenterDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         notePresenter = NotePresenter()
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataSource = self.notePresenter.getNotes()
+        dataSource = self.notePresenter.fetchLimitedNotes(fetchOffset:0, fetchLimit: 10)
         collectionView.reloadData()
     }
 }

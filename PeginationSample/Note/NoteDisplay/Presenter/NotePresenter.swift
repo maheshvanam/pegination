@@ -15,4 +15,8 @@ class NotePresenter: NotePresenterDelegate {
     func getNotes()->[Note] {
         return dbManager.getNotes()
     }
+    
+    func fetchLimitedNotes(fetchOffset:Int, fetchLimit: Int)->[Note]{
+        return dbManager.fetchLimitedNotes(fetchOffset: fetchOffset, fetchLimit: fetchLimit)
+    }
 }

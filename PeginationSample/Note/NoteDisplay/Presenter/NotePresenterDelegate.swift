@@ -10,4 +10,5 @@ import Foundation
 
 protocol NotePresenterDelegate {
     func getNotes()->[Note]
+    func fetchLimitedNotes(fetchOffset:Int, fetchLimit: Int)->[Note]
 }
